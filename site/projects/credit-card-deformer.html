@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Credit Card Deformer | Suhaas Behara</title>
+  <meta name="description" content="A 72-hour design challenge: a spring-loaded machine that recreates credit card bending failure, sized with cantilever beam analysis.">
+  <meta name="theme-color" content="#0d0d0b">
+  <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,300..900;1,62..125,300..900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script>document.documentElement.classList.add("js")</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="nav">
+    <div class="wrap">
+      <a class="logo" href="../index.html" aria-label="Suhaas Behara, home">Suhaas<em>behara</em></a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu"><span></span></button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="../index.html#work" aria-current="page">Work</a></li>
+        <li><a href="../index.html#about">About</a></li>
+        <li><a href="../index.html#skills">Skills</a></li>
+        <li><a href="../assets/Suhaas_Behara_Resume.pdf" target="_blank" rel="noopener">Resume</a></li>
+        <li><a class="btn btn-gold" href="../index.html#contact">Get in touch</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="cs-hero wrap">
+      <a class="back mono" href="../index.html#work">← All work</a>
+      <p class="mono gold">(05) Design challenge · 72 hours</p>
+      <h1 class="cs-title">Credit card <em>deformer</em></h1>
+      <p class="cs-sub">A spring-loaded machine, designed from scratch in 72 hours, that recreates how a credit card bends and fails.</p>
+
+      <dl class="cs-meta">
+        <div><dt class="mono">Role</dt><dd>Designer: analysis, CAD, materials</dd></div>
+        <div><dt class="mono">Format</dt><dd>72-hour design challenge</dd></div>
+        <div><dt class="mono">Deliverables</dt><dd>Full CAD assembly, force analysis, material selection</dd></div>
+        <div><dt class="mono">Tools</dt><dd>Fusion 360, beam theory, material data</dd></div>
+      </dl>
+
+      <figure class="cs-cover paper">
+        <img src="../assets/img/deformer/deformer-views.webp" alt="Final assembly, exploded view and side view of the credit card deformer with key dimensions" width="1564" height="702">
+      </figure>
+    </section>
+
+    <div class="cs-body wrap">
+      <section class="cs-block reveal">
+        <header><div class="sticky"><span class="mono">01</span><h2>The challenge</h2></div></header>
+        <div class="cs-text">
+          <p>The prompt was to design, in <strong>72 hours</strong>, a machine that reliably reproduces the deformation a credit card goes through in everyday handling, so card designs can be tested for durability. My answer was a compact <strong>spring-loaded assembly</strong>: an aluminum frame and slider, a PLA clip with rubber tips that grips the card, and a steel spring sized to deliver exactly the force needed to plastically bend it.</p>
+          <div class="stats">
+            <div><strong>72 hrs</strong><span>concept to final CAD</span></div>
+            <div><strong>25.7 N</strong><span>force required for plastic deformation</span></div>
+            <div><strong>7.28 N/cm</strong><span>designed spring constant</span></div>
+            <div><strong>13 × 6 in</strong><span>base plate, 6.32 in assembly height</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="cs-block reveal">
+        <header><div class="sticky"><span class="mono">02</span><h2>Sizing the force</h2></div></header>
+        <div class="cs-text">
+          <p>I modeled the card held in the clip as a <strong>cantilever beam</strong> and worked backward from the material's yield strength to the force the machine must apply:</p>
+          <ul>
+            <li><strong>Moment:</strong> M = F · L, with L = 42.8 mm of card outside the slot.</li>
+            <li><strong>Section modulus:</strong> S = bh²/6 = (54 mm)(0.8 mm)²/6 ≈ 5.76 mm³.</li>
+            <li><strong>Yield:</strong> setting M/S = σ<sub>y</sub> = 170 MPa (SS316L) gives F &gt; 22.9 N. Adding the weight of the rod, slider and clip gives <strong>F &gt; 25.7 N</strong>.</li>
+            <li><strong>Spring:</strong> k = F/x = 25.7 N / (4.64 in − 3.25 in) = 18.49 N/in, or <strong>7.28 N/cm</strong>.</li>
+          </ul>
+          <div class="figs">
+            <figure class="fig w12 paper" style="--ar: 1496/848">
+              <button type="button" aria-label="Enlarge image: analysis and design decisions"><img src="../assets/img/deformer/deformer-analysis.webp" alt="Hand calculations for the force to deform the card and the spring constant, with assumptions and material table" loading="lazy" width="1496" height="848"></button>
+              <figcaption><b>Analysis sheet.</b> Assumptions: the card acts as a cantilever beam with uniform material properties.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="cs-block reveal">
+        <header><div class="sticky"><span class="mono">03</span><h2>Mechanism &amp; materials</h2></div></header>
+        <div class="cs-text">
+          <p>Each part's material was chosen for its job. I also designed against the failure modes most likely to ruin a test: <strong>friction losses</strong> (handled with coatings and lubricant) and a <strong>jamming slider</strong> (fixed by refining its geometry so it stays vertical through the stroke).</p>
+          <div class="figs">
+            <figure class="fig w5 paper" style="--ar: 1/1">
+              <button type="button" aria-label="Enlarge image: exploded view"><img src="../assets/img/deformer/deformer-exploded.webp" alt="Exploded CAD view of the deformer: top bar, slider, spring, frame columns, clip, card holder and base plate" loading="lazy" width="530" height="558"></button>
+              <figcaption><b>Exploded view.</b> Spring, slider, frame, clip and base.</figcaption>
+            </figure>
+            <figure class="fig w7 paper" style="--ar: 1614/774">
+              <button type="button" aria-label="Enlarge image: material selection"><img src="../assets/img/deformer/deformer-materials.webp" alt="Material selection for spring (hardened steel), slider (aluminum), clip (PLA with rubber tips) and base plate (aluminum)" loading="lazy" width="1614" height="774"></button>
+              <figcaption><b>Materials.</b> Hardened-steel spring for fatigue life; aluminum slider and base for low weight; PLA clip with rubber tips for grip.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="cs-block reveal">
+        <header><div class="sticky"><span class="mono">04</span><h2>Beyond the brief</h2></div></header>
+        <div class="cs-text">
+          <p>A machine is only useful if it matches real use, so I looked into <strong>user studies of how people handle cards</strong> to sanity-check the forces. I also proposed material and surface-treatment changes that would make cards more durable in the first place.</p>
+        </div>
+      </section>
+
+      <section class="cs-skills reveal">
+        <p class="mono" style="margin-bottom:18px">Top skills utilized</p>
+        <ul class="chips gold"><li>Fusion 360</li><li>Beam analysis</li><li>Spring design</li><li>Material selection</li><li>Data-driven design</li><li>Rapid concept development</li></ul>
+      </section>
+    </div>
+
+    <nav class="cs-next wrap" aria-label="Next project">
+      <span class="mono">Back to the start (01)</span>
+      <a href="tactile-sensing.html"><span class="t">Tactile sensing <span class="arrow" aria-hidden="true">→</span></span></a>
+      <footer class="footer">
+        <span class="mono">© <span data-year>2026</span> Suhaas Behara</span>
+        <a class="mono" href="mailto:behara@purdue.edu">behara@purdue.edu</a>
+        <a class="mono" href="../index.html#work">All work ↑</a>
+      </footer>
+    </nav>
+  </main>
+
+  <dialog class="lightbox" id="lightbox" aria-label="Enlarged image">
+    <button class="close" type="button" aria-label="Close enlarged image">×</button>
+    <figure><img src="" alt=""><figcaption></figcaption></figure>
+  </dialog>
+
+  <script src="../assets/js/main.js" defer></script>
+</body>
+</html>

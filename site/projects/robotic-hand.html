@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>7-DOF Robotic Hand | Suhaas Behara</title>
+  <meta name="description" content="A 3D-printed, tendon-driven 7-DOF robotic hand teleoperated in real time with Python hand tracking and Arduino servo control.">
+  <meta name="theme-color" content="#0d0d0b">
+  <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,300..900;1,62..125,300..900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script>document.documentElement.classList.add("js")</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="nav">
+    <div class="wrap">
+      <a class="logo" href="../index.html" aria-label="Suhaas Behara, home">Suhaas<em>behara</em></a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu"><span></span></button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="../index.html#work" aria-current="page">Work</a></li>
+        <li><a href="../index.html#about">About</a></li>
+        <li><a href="../index.html#skills">Skills</a></li>
+        <li><a href="../assets/Suhaas_Behara_Resume.pdf" target="_blank" rel="noopener">Resume</a></li>
+        <li><a class="btn btn-gold" href="../index.html#contact">Get in touch</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="cs-hero wrap">
+      <a class="back mono" href="../index.html#work">← All work</a>
+      <p class="mono gold">(03) Personal project · Mechatronics</p>
+      <h1 class="cs-title">Robotic <em>hand</em></h1>
+      <p class="cs-sub">A 3D-printed, tendon-driven hand that copies my own finger movements in real time from a webcam.</p>
+
+      <dl class="cs-meta">
+        <div><dt class="mono">Role</dt><dd>Solo: design, build and code</dd></div>
+        <div><dt class="mono">Timeline</dt><dd>Jun — Aug 2026</dd></div>
+        <div><dt class="mono">Degrees of freedom</dt><dd>7, tendon-driven</dd></div>
+        <div><dt class="mono">Tools</dt><dd>Fusion 360, Python, Arduino, servos</dd></div>
+      </dl>
+
+      <figure class="cs-cover">
+        <img src="../assets/img/hand/hand-side.webp" alt="White 3D-printed robotic hand and forearm with servo wiring, lying on a wooden table" width="1010" height="584">
+      </figure>
+    </section>
+
+    <div class="cs-body wrap">
+      <section class="cs-block reveal">
+        <header><div class="sticky"><span class="mono">01</span><h2>Overview</h2></div></header>
+        <div class="cs-text">
+          <p>I wanted to build a robot hand that you control just by moving your own. Over the summer I designed, printed and assembled a <strong>7-DOF tendon-driven hand</strong> in Fusion 360. I also wrote a <strong>Python vision pipeline</strong> that turns live webcam footage of my hand into servo commands.</p>
+          <div class="stats">
+            <div><strong>7</strong><span>degrees of freedom</span></div>
+            <div><strong>21</strong><span>hand landmarks tracked per frame</span></div>
+            <div><strong>5</strong><span>independently articulated fingers</span></div>
+            <div><strong>Real-time</strong><span>teleoperation from a webcam</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="cs-block reveal">
+        <header><div class="sticky"><span class="mono">02</span><h2>Mechanical design</h2></div></header>
+        <div class="cs-text">
+          <p>Putting motors in the fingers makes them bulky and heavy, so the hand works like a human one. <strong>Tendons</strong> run through each finger to servos and pulleys mounted in the forearm, which keeps the fingers slim and puts the mass near the wrist.</p>
+          <ul>
+            <li><strong>Dimensional tolerancing</strong> on every printed joint and pin, so parts assemble without post-machining and joints move freely without slop.</li>
+            <li><strong>Actuator integration:</strong> I iterated the forearm layout so the servos, pulleys and tendon routing all fit inside one printed shell.</li>
+            <li><strong>Independent articulation:</strong> each finger has its own tendon path, so it can flex without dragging its neighbors.</li>
+          </ul>
+          <div class="figs">
+            <figure class="fig w5" style="--ar: 544/756">
+              <button type="button" aria-label="Enlarge image: hand upright"><img src="../assets/img/hand/hand-upright.webp" alt="Robotic hand standing upright with fingers extended and the forearm open showing the servos" loading="lazy" width="544" height="756"></button>
+              <figcaption><b>Assembled.</b> Fingers extended, forearm open.</figcaption>
+            </figure>
+            <figure class="fig w7" style="--ar: 1018/642">
+              <button type="button" aria-label="Enlarge image: forearm servos"><img src="../assets/img/hand/hand-forearm-servos.webp" alt="Close-up of two servos with pulleys and tendon lines inside the printed forearm" loading="lazy" width="1018" height="642"></button>
+              <figcaption><b>Forearm.</b> Servos and pulleys pulling the finger tendons.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="cs-block reveal">
+        <header><div class="sticky"><span class="mono">03</span><h2>Control pipeline</h2></div></header>
+        <div class="cs-text">
+          <p>The software runs from camera to motor in five steps:</p>
+          <ol class="pipeline">
+            <li><b>Capture</b><span>Webcam frames streamed into Python.</span></li>
+            <li><b>Detect</b><span>21 hand landmarks located on every frame.</span></li>
+            <li><b>Solve</b><span>Inverse kinematics turns landmark positions into joint angles.</span></li>
+            <li><b>Map</b><span>Angles scaled to each servo's calibrated range.</span></li>
+            <li><b>Actuate</b><span>Commands sent over serial; the Arduino drives the servos.</span></li>
+          </ol>
+          <p>The Arduino handles low-level motor control while Python does the heavy vision work, so both sides stay simple and fast enough for teleoperation that feels intuitive.</p>
+        </div>
+      </section>
+
+      <section class="cs-block reveal">
+        <header><div class="sticky"><span class="mono">04</span><h2>Integration &amp; testing</h2></div></header>
+        <div class="cs-text">
+          <p>Bringing the mechanical, electrical and software parts together needed several rounds of <strong>calibration and mechanical refinement</strong>. I tuned each finger's servo range against its real tendon travel, adjusted tension, and revised parts where motion bound up, until the hand followed my movements cleanly.</p>
+        </div>
+      </section>
+
+      <section class="cs-skills reveal">
+        <p class="mono" style="margin-bottom:18px">Top skills utilized</p>
+        <ul class="chips gold"><li>Fusion 360</li><li>Tendon-driven mechanisms</li><li>Dimensional tolerancing</li><li>Python</li><li>Computer vision</li><li>Inverse kinematics</li><li>Arduino</li><li>3D printing</li></ul>
+      </section>
+    </div>
+
+    <nav class="cs-next wrap" aria-label="Next project">
+      <span class="mono">Next project (04)</span>
+      <a href="active-orthosis.html"><span class="t">Active orthosis <span class="arrow" aria-hidden="true">→</span></span></a>
+      <footer class="footer">
+        <span class="mono">© <span data-year>2026</span> Suhaas Behara</span>
+        <a class="mono" href="mailto:behara@purdue.edu">behara@purdue.edu</a>
+        <a class="mono" href="../index.html#work">All work ↑</a>
+      </footer>
+    </nav>
+  </main>
+
+  <dialog class="lightbox" id="lightbox" aria-label="Enlarged image">
+    <button class="close" type="button" aria-label="Close enlarged image">×</button>
+    <figure><img src="" alt=""><figcaption></figcaption></figure>
+  </dialog>
+
+  <script src="../assets/js/main.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tactile Sensing &amp; Robotics Research | Suhaas Behara</title>
+  <meta name="description" content="Miniaturized vision-based tactile sensors for robot-assisted minimally invasive surgery at Purdue's MARS Lab: MVP-Tac, HueTac, PhoTac and more.">
+  <meta name="theme-color" content="#0d0d0b">
+  <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,300..900;1,62..125,300..900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script>document.documentElement.classList.add("js")</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="nav">
+    <div class="wrap">
+      <a class="logo" href="../index.html" aria-label="Suhaas Behara, home">Suhaas<em>behara</em></a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu"><span></span></button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="../index.html#work" aria-current="page">Work</a></li>
+        <li><a href="../index.html#about">About</a></li>
+        <li><a href="../index.html#skills">Skills</a></li>
+        <li><a href="../assets/Suhaas_Behara_Resume.pdf" target="_blank" rel="noopener">Resume</a></li>
+        <li><a class="btn btn-gold" href="../index.html#contact">Get in touch</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="cs-hero wrap">
+      <a class="back mono" href="../index.html#work">← All work</a>
+      <p class="mono gold">(01) Research · Purdue MARS Lab</p>
+      <h1 class="cs-title">Tactile sensing <em>&amp; robotics</em></h1>
+      <p class="cs-sub">Building tiny, camera-based touch sensors that give surgical robots a sense of touch without taking away their sight.</p>
+
+      <dl class="cs-meta">
+        <div><dt class="mono">Role</dt><dd>Undergraduate Research Assistant</dd></div>
+        <div><dt class="mono">Lab</dt><dd>Mechanisms &amp; Robotic Systems (MARS) Lab, Purdue</dd></div>
+        <div><dt class="mono">Timeline</dt><dd>Aug 2026 — Present</dd></div>
+        <div><dt class="mono">Tools</dt><dd>Siemens NX, resin &amp; FDM printing, silicone casting</dd></div>
+      </dl>
+
+      <figure class="cs-cover paper" style="margin-bottom:0">
+        <img src="../assets/img/research/fig1-overview.webp" alt="MVP-Tac sensor overview: external view, 45 mm long and 7 mm wide, internal modules, exploded view, imaging principle and dual vision/tactile modality" width="821" height="1254" style="max-height:78vh">
+      </figure>
+    </section>
+
+    <div class="cs-body wrap">
+      <!-- 01 -->
+      <section class="cs-block reveal">
+        <header><div class="sticky"><span class="mono">01</span><h2>Overview</h2></div></header>
+        <div class="cs-text">
+          <p>In open surgery, surgeons find tumors partly by <strong>feel</strong>, pressing on tissue to locate stiff lumps. Robot-assisted minimally invasive surgery (RMIS) takes that away. The surgeon only has a camera feed, and small or buried tumors can look exactly like healthy tissue.</p>
+          <p>Our sub-group in the MARS Lab builds <strong>miniaturized, vision-based tactile sensors</strong>: soft elastomer skins watched by a tiny camera, so a robot can measure contact force, shape and hardness. My job is the hardware that makes those sensors physically possible at this scale:</p>
+          <ul>
+            <li><strong>Designed compact mechanical components in Siemens NX</strong> for a vision-based photoelastic tactile sensor, balancing manufacturability, optical alignment and room for the embedded camera and LEDs.</li>
+            <li><strong>Fabricated and iterated prototypes</strong> (resin prints, silicone molds, cast elastomer layers) to resolve packaging and assembly problems.</li>
+            <li><strong>Validated designs with doctoral researchers</strong> through prototype assembly and mechanical testing, then turned the results into design revisions.</li>
+          </ul>
+          <p class="note">This page covers the sub-group's projects I've worked across: MVP-Tac, HueTac, PhoTac Wedge, TacSkin and Seeing Touch. Results and figures belong to the whole team. MVP-Tac is published as Prince et al., <a class="inline" href="https://arxiv.org/abs/2607.18660" target="_blank" rel="noopener">arXiv:2607.18660</a> (open source at <a class="inline" href="https://mvp-tac.github.io/" target="_blank" rel="noopener">mvp-tac.github.io</a>).</p>
+        </div>
+      </section>
+
+      <!-- 02 -->
+      <section class="cs-block reveal">
+        <header><div class="sticky"><span class="mono">02</span><h2>MVP-Tac: vision + touch in 7&nbsp;mm</h2></div></header>
+        <div class="cs-text">
+          <p>Most tactile sensors block the camera's view, and in surgery losing vision isn't acceptable. MVP-Tac solves this with <strong>reflective photoelasticity</strong>. A thin photoelastic elastomer under a <strong>half-silvered membrane</strong> sits above a circular polarizer, a camera and LEDs. With the LEDs off, the camera sees straight through the membrane (vision mode). With the LEDs on, pressing the skin produces stress fringes that the camera reads as force (tactile mode).</p>
+          <div class="stats">
+            <div><strong>7 mm</strong><span>sensor diameter (45 mm long)</span></div>
+            <div><strong>0.05 N</strong><span>mean force error over 0–2 N (R² = 0.987)</span></div>
+            <div><strong>97%</strong><span>exposed-tumor hardness classification</span></div>
+            <div><strong>92%</strong><span>subdermal-tumor classification</span></div>
+            <div><strong>&lt;$20</strong><span>total parts + mold cost</span></div>
+          </div>
+          <p>The parts and molds are 3D printed. The elastomer is VytaFlex 20, cast in a 5 mm mold, mirror-coated and then sealed with a protective overlayer. A key mechanical problem was <strong>bonding</strong>: polyurethane doesn't bond chemically to the small acrylic spacer, so the joint failed during calibration until the team switched to a Ure-Bond II adhesive step.</p>
+          <div class="figs">
+            <figure class="fig w12 paper" style="--ar: 1680/231">
+              <button type="button" aria-label="Enlarge image: elastomer fabrication steps"><img src="../assets/img/research/fig2-fabrication.webp" alt="Four-step fabrication of the photoelastic elastomer: casting, mirror coating, protection layer, cured layer" loading="lazy" width="1680" height="231"></button>
+              <figcaption><b>Fabrication.</b> Cast → semi-transparent mirror coat → protective layer → cured photoelastic skin.</figcaption>
+            </figure>
+            <figure class="fig w5 paper" style="--ar: 554/721">
+              <button type="button" aria-label="Enlarge image: force calibration rig"><img src="../assets/img/research/fig3-calibration-rig.webp" alt="Calibration setup with Mark-10 force gauge on a linear stage pressing indenters into MVP-Tac" loading="lazy" width="554" height="721"></button>
+              <figcaption><b>Calibration rig.</b> Mark-10 force gauge on a linear stage, with about 2,500 synchronized image–force pairs.</figcaption>
+            </figure>
+            <figure class="fig w7 paper" style="--ar: 1680/1191">
+              <button type="button" aria-label="Enlarge image: force estimation results"><img src="../assets/img/research/fig4-force-results.webp" alt="Plots of G-squared metric versus force, predicted versus true force, error distribution, and loading/unloading repeatability" loading="lazy" width="1680" height="1191"></button>
+              <figcaption><b>Results.</b> A dual-branch network (image + G² stress metric) tracks the ground-truth force across repeated cycles.</figcaption>
+            </figure>
+            <figure class="fig w6" style="--ar: 817/504">
+              <button type="button" aria-label="Enlarge image: tumor phantom setup"><img src="../assets/img/research/fig5-tumor-setup.webp" alt="MVP-Tac on a benchtop CNC above silicone tumor phantoms of varying hardness" loading="lazy" width="817" height="504"></button>
+              <figcaption><b>Tumor phantoms.</b> Shore 20A–60A inclusions (4–12 mm), exposed and 2 mm subdermal.</figcaption>
+            </figure>
+            <figure class="fig w6 paper" style="--ar: 757/338">
+              <button type="button" aria-label="Enlarge image: confusion matrices"><img src="../assets/img/research/fig6-confusion.webp" alt="Confusion matrices for exposed tumors (97.37 percent) and subdermal tumors (92.11 percent)" loading="lazy" width="757" height="338"></button>
+              <figcaption><b>Hardness classification.</b> A ResNet-18 + GRU video model labels hardness from 16-frame palpations.</figcaption>
+            </figure>
+            <figure class="fig w5 paper" style="--ar: 721/694">
+              <button type="button" aria-label="Enlarge image: simulated colonoscopy"><img src="../assets/img/research/fig7-colonoscopy.webp" alt="Simulated colonoscopy setup with UR5e manipulator, colon phantom and reconstructed 3D map of the intestinal wall" loading="lazy" width="721" height="694"></button>
+              <figcaption><b>Simulated colonoscopy.</b> Vision mode maps the lumen in 3D; tactile mode confirms nodules, with 100% accuracy on 50A/60A.</figcaption>
+            </figure>
+            <figure class="fig w7 paper" style="--ar: 854/947">
+              <button type="button" aria-label="Enlarge image: UR5e scanning trajectory"><img src="../assets/img/research/fig8-ur5e-scan.webp" alt="Grid of camera views from MVP-Tac mounted on a UR5e following a stepwise circular scanning path" loading="lazy" width="854" height="947"></button>
+              <figcaption><b>Robot scanning.</b> UR5e circular scans (52 mm diameter, 10 mm layer spacing) recorded at 10 Hz.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- 03 -->
+      <section class="cs-block reveal">
+        <header><div class="sticky"><span class="mono">03</span><h2>HueTac: molding the skin</h2></div></header>
+        <div class="cs-text">
+          <p>HueTac is a dome-shaped color tactile sensor: a resin-printed <strong>skeleton</strong> covered in a dyed silicone skin. Most of my lab time goes here, turning CAD into parts that actually come out of the mold right.</p>
+          <ul>
+            <li><strong>Surface prep.</strong> I washed and cured the resin skeletons in alcohol, then hand-sanded the fingertips to final geometry. We found that heat from long power-sanding was <strong>warping the exoskeletons</strong>, so finishing moved to careful hand work.</li>
+            <li><strong>Fixing an off-center cast.</strong> The first silicone pour came out with the skeleton off-center. We traced it to the mold, redesigned the male mold so it locates the skeleton, and moved the hole features to a resin printer with <strong>±0.02 mm</strong> tolerance after CNC proved impractical for that geometry.</li>
+            <li><strong>Opacity tuning.</strong> I mixed silicone batches at different dye concentrations and compared their opacity to pick a formula that hides the internals while still passing the light the sensor needs.</li>
+          </ul>
+          <div class="figs">
+            <figure class="fig w4" style="--ar: 1/1">
+              <button type="button" aria-label="Enlarge image: dyed silicone batch"><img src="../assets/img/research/lab-p15-26.webp" alt="Mixing a red-dyed silicone batch in a clear cup" loading="lazy" width="475" height="477"></button>
+              <figcaption><b>Casting.</b> Dyed silicone batch, degassed before the pour.</figcaption>
+            </figure>
+            <figure class="fig w8" style="--ar: 845/543">
+              <button type="button" aria-label="Enlarge image: dye concentration comparison"><img src="../assets/img/research/lab-p48-23.webp" alt="Three cups of red silicone at different dye concentrations" loading="lazy" width="845" height="543"></button>
+              <figcaption><b>Dye study.</b> Batches at varying concentration to compare opacity.</figcaption>
+            </figure>
+            <figure class="fig w4" style="--ar: 1/1">
+              <button type="button" aria-label="Enlarge image: cast skin in mold"><img src="../assets/img/research/lab-p16-22.webp" alt="Red silicone skin cured inside a white 3D-printed mold" loading="lazy" width="385" height="383"></button>
+              <figcaption><b>Mold v1.</b> Cured skin, which revealed the centering issue.</figcaption>
+            </figure>
+            <figure class="fig w4 paper" style="--ar: 1/1">
+              <button type="button" aria-label="Enlarge image: HueTac skeleton CAD"><img src="../assets/img/research/lab-p50-14.webp" alt="CAD model of the perforated HueTac dome skeleton on its base plate" loading="lazy" width="677" height="470"></button>
+              <figcaption><b>Skeleton CAD.</b> Perforated dome on a locating base.</figcaption>
+            </figure>
+            <figure class="fig w4" style="--ar: 1/1">
+              <button type="button" aria-label="Enlarge image: finished HueTac dome"><img src="../assets/img/research/lab-p34-21.webp" alt="Red silicone HueTac dome with black marker holes" loading="lazy" width="452" height="483"></button>
+              <figcaption><b>Result.</b> Silicone dome with marker holes.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- 04 -->
+      <section class="cs-block reveal">
+        <header><div class="sticky"><span class="mono">04</span><h2>PhoTac Wedge &amp; grippers</h2></div></header>
+        <div class="cs-text">
+          <p>PhoTac Wedge is a gripper-mounted tactile sensor that learns <strong>normal force from a single image</strong>. Building that dataset is a manufacturing problem: the team resin-printed <strong>100+ calibration objects</strong> and designed an ATI force/torque sensor holder, then pressed each object into the sensor while logging force.</p>
+          <div class="stats">
+            <div><strong>100+</strong><span>resin-printed test objects</span></div>
+            <div><strong>2.28 → 0.65 N</strong><span>force error as the dataset grew from 10 shapes to 50 objects</span></div>
+            <div><strong>35k</strong><span>labelled frames (ResNet-50)</span></div>
+          </div>
+          <p>Alongside that, the group redesigned the LeRobot gripper: new contact surfaces, screw bosses for the light board, a camera mount, and a mold for casting silicone onto the fingers.</p>
+          <div class="figs">
+            <figure class="fig w7" style="--ar: 604/424">
+              <button type="button" aria-label="Enlarge image: calibration objects"><img src="../assets/img/research/lab-p10-25.webp" alt="Box of white and purple resin-printed calibration objects" loading="lazy" width="604" height="424"></button>
+              <figcaption><b>Calibration set.</b> First batch of printed indentation objects.</figcaption>
+            </figure>
+            <figure class="fig w5" style="--ar: 547/691">
+              <button type="button" aria-label="Enlarge image: PhoTac sensor on test rig"><img src="../assets/img/research/lab-p29-27.webp" alt="PhoTac wedge sensor mounted on the ATI force sensor test rig" loading="lazy" width="547" height="691"></button>
+              <figcaption><b>Test rig.</b> Sensor on the ATI holder during data collection.</figcaption>
+            </figure>
+            <figure class="fig w6" style="--ar: 847/449">
+              <button type="button" aria-label="Enlarge image: resin print plate"><img src="../assets/img/research/lab-p30-23.webp" alt="Resin printer build plate covered in purple printed objects" loading="lazy" width="847" height="449"></button>
+              <figcaption><b>Batch printing.</b> Resin plate of test geometries.</figcaption>
+            </figure>
+            <figure class="fig w6" style="--ar: 770/637">
+              <button type="button" aria-label="Enlarge image: sensor housing"><img src="../assets/img/research/lab-p12-19.webp" alt="Black 3D-printed sensor housing with circuit board on top" loading="lazy" width="770" height="637"></button>
+              <figcaption><b>Housing.</b> Printed enclosure with a sensor board.</figcaption>
+            </figure>
+            <figure class="fig w6 paper" style="--ar: 878/774">
+              <button type="button" aria-label="Enlarge image: gripper and camera mount CAD"><img src="../assets/img/research/lab-p13-17.webp" alt="CAD drawing of a new parallel gripper with camera mount" loading="lazy" width="878" height="774"></button>
+              <figcaption><b>Gripper + camera mount.</b> Parallel gripper for the lab's robot arm.</figcaption>
+            </figure>
+            <figure class="fig w6 paper" style="--ar: 981/608">
+              <button type="button" aria-label="Enlarge image: LeRobot gripper redesign"><img src="../assets/img/research/lab-p14-29.webp" alt="Green CAD model of the redesigned LeRobot gripper finger" loading="lazy" width="981" height="608"></button>
+              <figcaption><b>LeRobot finger.</b> Redesigned dimensions, contact surface and outer geometry.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- 05 -->
+      <section class="cs-block reveal">
+        <header><div class="sticky"><span class="mono">05</span><h2>TacSkin &amp; Seeing Touch</h2></div></header>
+        <div class="cs-text">
+          <p>The rest of the group pushes touch beyond fingertips. <strong>TacSkin</strong> explores large-area skins: photodiode and mutual-capacitance pads, and <strong>SpectraTac</strong>, a camera-free optical sensor that uses 3 RGB emitters and 3 color sensors around clear PDMS to predict 6-axis force/torque. Others sew conductive-thread sensors into gloves. <strong>Seeing Touch</strong> mounts these sensors on Franka Panda and LeRobot arms and collects teleoperated demonstrations with live tactile heatmaps for robot learning.</p>
+          <div class="figs">
+            <figure class="fig w12 paper" style="--ar: 1081/502">
+              <button type="button" aria-label="Enlarge image: SpectraTac design"><img src="../assets/img/research/lab-p25-24.webp" alt="SpectraTac structure, top view layout, working principle and fabrication steps" loading="lazy" width="1081" height="502"></button>
+              <figcaption><b>SpectraTac.</b> Force changes internal light paths; 12 raw color values are expanded into 33 features for a ResMLP.</figcaption>
+            </figure>
+            <figure class="fig w6" style="--ar: 878/724">
+              <button type="button" aria-label="Enlarge image: capacitive sensor PCBs"><img src="../assets/img/research/lab-p18-20.webp" alt="Four green capacitive tactile sensor PCBs" loading="lazy" width="878" height="724"></button>
+              <figcaption><b>Capacitive pads.</b> Sensor boards ready for their silicone layers.</figcaption>
+            </figure>
+            <figure class="fig w6" style="--ar: 645/654">
+              <button type="button" aria-label="Enlarge image: tactile glove"><img src="../assets/img/research/lab-p44-11.webp" alt="Pink fabric glove with a sewn-in tactile sensor" loading="lazy" width="645" height="654"></button>
+              <figcaption><b>Tactile glove.</b> Conductive-thread sensor sewn into fabric.</figcaption>
+            </figure>
+            <figure class="fig w6" style="--ar: 662/722">
+              <button type="button" aria-label="Enlarge image: Franka Panda with tactile gripper"><img src="../assets/img/research/lab-p06-38.webp" alt="Franka Panda robot arm fitted with a tactile gripper" loading="lazy" width="662" height="722"></button>
+              <figcaption><b>Seeing Touch.</b> Tactile gripper on a Franka Panda.</figcaption>
+            </figure>
+            <figure class="fig w6" style="--ar: 617/725">
+              <button type="button" aria-label="Enlarge image: data collection station"><img src="../assets/img/research/lab-p51-30.webp" alt="Robot arm data collection station with test objects on the table" loading="lazy" width="617" height="725"></button>
+              <figcaption><b>Data collection.</b> In- and out-of-distribution pick-and-place episodes.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- 06 -->
+      <section class="cs-block reveal">
+        <header><div class="sticky"><span class="mono">06</span><h2>What I took away</h2></div></header>
+        <div class="cs-text">
+          <ul>
+            <li><strong>At millimeter scale, tolerances run the design.</strong> A 0.1 mm offset in a mold or spacer shows up directly as blur, a bad bond or a failed calibration.</li>
+            <li><strong>Manufacturing is part of the design.</strong> Choosing resin over CNC, or hand sanding over power sanding, decided whether a part worked at all.</li>
+            <li><strong>Research teams work in agile loops.</strong> We work with mob programming and swarming, and every build → test → revise cycle is reported weekly to the PhD lead.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="cs-skills reveal">
+        <p class="mono" style="margin-bottom:18px">Top skills utilized</p>
+        <ul class="chips gold"><li>Siemens NX</li><li>Design for manufacturing</li><li>Mold design</li><li>Silicone casting</li><li>Resin &amp; FDM printing</li><li>Optical alignment</li><li>Test fixtures</li><li>Research collaboration</li></ul>
+      </section>
+    </div>
+
+    <nav class="cs-next wrap" aria-label="Next project">
+      <span class="mono">Next project (02)</span>
+      <a href="epics-mobi.html"><span class="t">EPICS MOBI <span class="arrow" aria-hidden="true">→</span></span></a>
+      <footer class="footer">
+        <span class="mono">© <span data-year>2026</span> Suhaas Behara</span>
+        <a class="mono" href="mailto:behara@purdue.edu">behara@purdue.edu</a>
+        <a class="mono" href="../index.html#work">All work ↑</a>
+      </footer>
+    </nav>
+  </main>
+
+  <dialog class="lightbox" id="lightbox" aria-label="Enlarged image">
+    <button class="close" type="button" aria-label="Close enlarged image">×</button>
+    <figure><img src="" alt=""><figcaption></figcaption></figure>
+  </dialog>
+
+  <script src="../assets/js/main.js" defer></script>
+</body>
+</html>

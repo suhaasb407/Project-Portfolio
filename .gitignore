@@ -1,0 +1,14 @@
+# Personal files and raw source material (not part of the website)
+Downloads/
+*.pdf
+Screenshot*.png
+*.zip
+
+# Keep the resume that the site links to
+!site/assets/Suhaas_Behara_Resume.pdf
+
+# OS / editor clutter
+Thumbs.db
+desktop.ini
+.DS_Store
+.vscode/

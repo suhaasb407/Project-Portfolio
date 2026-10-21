@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Active Upper-Limb Orthosis | Suhaas Behara</title>
+  <meta name="description" content="Designing a motorized upper-limb orthosis for rehabilitation with ASME Biomechanics: scan-based CAD in Fusion 360 and KiCad control electronics.">
+  <meta name="theme-color" content="#0d0d0b">
+  <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,300..900;1,62..125,300..900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script>document.documentElement.classList.add("js")</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="nav">
+    <div class="wrap">
+      <a class="logo" href="../index.html" aria-label="Suhaas Behara, home">Suhaas<em>behara</em></a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu"><span></span></button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="../index.html#work" aria-current="page">Work</a></li>
+        <li><a href="../index.html#about">About</a></li>
+        <li><a href="../index.html#skills">Skills</a></li>
+        <li><a href="../assets/Suhaas_Behara_Resume.pdf" target="_blank" rel="noopener">Resume</a></li>
+        <li><a class="btn btn-gold" href="../index.html#contact">Get in touch</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="cs-hero wrap">
+      <a class="back mono" href="../index.html#work">← All work</a>
+      <p class="mono gold">(04) ASME Biomechanics · Rehabilitation</p>
+      <h1 class="cs-title">Active <em>orthosis</em></h1>
+      <p class="cs-sub">A motorized upper-limb brace for rehabilitation, shaped around a 3D scan of a real arm.</p>
+
+      <dl class="cs-meta">
+        <div><dt class="mono">Role</dt><dd>Mechanical &amp; electrical design</dd></div>
+        <div><dt class="mono">Organization</dt><dd>ASME Biomechanics, Purdue</dd></div>
+        <div><dt class="mono">Timeline</dt><dd>Jan — May 2026</dd></div>
+        <div><dt class="mono">Tools</dt><dd>Fusion 360, KiCad, 3D scanning, 3D printing</dd></div>
+      </dl>
+
+      <figure class="cs-cover">
+        <img src="../assets/img/orthosis/orthosis-render.webp" alt="Render of a black active elbow orthosis fitted over a tan scanned arm, with the actuator hub at the elbow" width="1554" height="850">
+      </figure>
+    </section>
+
+    <div class="cs-body wrap">
+      <section class="cs-block reveal">
+        <header><div class="sticky"><span class="mono">01</span><h2>Overview</h2></div></header>
+        <div class="cs-text">
+          <p>Patients recovering from injury or stroke often need <strong>repetitive, assisted elbow motion</strong> to rebuild strength. An active orthosis adds a motor to the brace so it can drive or assist that motion. I designed and manufactured components for the orthosis in Fusion 360 and built its control electronics in KiCad.</p>
+          <ul>
+            <li><strong>Mechanical:</strong> iterative CAD and dimensional tolerancing to improve manufacturability and range of motion.</li>
+            <li><strong>Electrical:</strong> KiCad schematics and PCB layouts, with sensors, motor drivers and power circuitry chosen for reliable actuator control.</li>
+            <li><strong>Integration:</strong> joined the hardware with the embedded control system and fixed the mechanical/electrical compatibility issues found in testing.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="cs-block reveal">
+        <header><div class="sticky"><span class="mono">02</span><h2>Scan-to-CAD</h2></div></header>
+        <div class="cs-text">
+          <p>A brace that doesn't fit doesn't get worn. Instead of modeling a generic tube, we started from a <strong>3D scan of a real arm</strong> and used it as reference geometry, so the upper-arm and forearm shells follow the actual contours of the limb, including where the elbow axis really sits.</p>
+          <div class="figs">
+            <figure class="fig w12" style="--ar: 1800/983">
+              <button type="button" aria-label="Enlarge image: arm scan"><img src="../assets/img/orthosis/arm-scan.webp" alt="3D scan mesh of a full arm from hand to shoulder" loading="lazy" width="1800" height="983"></button>
+              <figcaption><b>Arm scan.</b> Mesh used as the reference body for the shell geometry.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="cs-block reveal">
+        <header><div class="sticky"><span class="mono">03</span><h2>Mechanical design</h2></div></header>
+        <div class="cs-text">
+          <p>The orthosis is two contoured shells, one for the upper arm and one for the forearm, joined at an elbow hub that houses the actuator and its bearing stack. Large cut-outs reduce weight and let the skin breathe without weakening the load path from the hub into each cuff.</p>
+          <div class="figs">
+            <figure class="fig w12 paper" style="--ar: 1738/860">
+              <button type="button" aria-label="Enlarge image: exploded view"><img src="../assets/img/orthosis/orthosis-exploded.webp" alt="Exploded render of the orthosis: upper-arm shell, forearm shell, bushings and elbow actuator stack" loading="lazy" width="1738" height="860"></button>
+              <figcaption><b>Exploded view.</b> Upper-arm shell, forearm cuff, pivot bushings and the elbow actuator stack.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="cs-block reveal">
+        <header><div class="sticky"><span class="mono">04</span><h2>Electronics &amp; validation</h2></div></header>
+        <div class="cs-text">
+          <p>I designed the <strong>KiCad schematics and PCB layouts</strong> for the control board and selected the sensors, motor driver and power circuitry. Validation meant putting the mechanical hardware and embedded controls together on the real prototype, then working through the problems that only appear at that stage: connector clearances, wiring routes through the shells, and driver behavior under load.</p>
+        </div>
+      </section>
+
+      <section class="cs-skills reveal">
+        <p class="mono" style="margin-bottom:18px">Top skills utilized</p>
+        <ul class="chips gold"><li>Fusion 360</li><li>Scan-based CAD</li><li>Dimensional tolerancing</li><li>KiCad</li><li>PCB layout</li><li>Motor control</li><li>Biomechanics</li></ul>
+      </section>
+    </div>
+
+    <nav class="cs-next wrap" aria-label="Next project">
+      <span class="mono">Next project (05)</span>
+      <a href="credit-card-deformer.html"><span class="t">Credit card deformer <span class="arrow" aria-hidden="true">→</span></span></a>
+      <footer class="footer">
+        <span class="mono">© <span data-year>2026</span> Suhaas Behara</span>
+        <a class="mono" href="mailto:behara@purdue.edu">behara@purdue.edu</a>
+        <a class="mono" href="../index.html#work">All work ↑</a>
+      </footer>
+    </nav>
+  </main>
+
+  <dialog class="lightbox" id="lightbox" aria-label="Enlarged image">
+    <button class="close" type="button" aria-label="Close enlarged image">×</button>
+    <figure><img src="" alt=""><figcaption></figcaption></figure>
+  </dialog>
+
+  <script src="../assets/js/main.js" defer></script>
+</body>
+</html>
