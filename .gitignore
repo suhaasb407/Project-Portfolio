@@ -5,7 +5,7 @@ Screenshot*.png
 *.zip
 
 # Keep the resume that the site links to
-!site/assets/Suhaas_Behara_Resume.pdf
+!docs/assets/Suhaas_Behara_Resume.pdf
 
 # OS / editor clutter
 Thumbs.db
